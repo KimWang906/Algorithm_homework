@@ -50,8 +50,8 @@ void decryptFile(std::string filePath) {
 // If it find a file, it will encrypt that file(파일을 찾으면 해당 파일을 복호화합니다)
 // If it find a directory, it will read through that directory(디렉토리를 찾으면 해당 디렉토리를 읽습니다)
 void decryptDirectory(std::string directoryPath) {
-    DIR* directory;
-    struct dirent* entry; // format: typedef struct __dirstream_t DIR;
+    DIR* directory; // format: typedef struct __dirstream_t DIR;
+    struct dirent* entry; 
     //  dirent format:
     //      struct dirent
     //      {
