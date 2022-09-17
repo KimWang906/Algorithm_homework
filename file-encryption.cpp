@@ -71,7 +71,7 @@ void encryptDirectory(std::string directoryPath) {
         while((entry = readdir(directory)) != NULL) {
             // Check if this entry (file or directory) is current directory (".") or parent directory ("..")
             // 이 항목(파일 또는 디렉터리)이 현재 디렉터리(".")인지 아니면 상위 디렉터리("..")인지 확인합니다.
-            if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) { // 구조체 포인터를 사용하여 dirent 구조체에 d_name에 접근하여 값을 strcmp() 함수로 문자열 "." && ".."과 비교하여 0이 아닐 경우
+            if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) { // 구조체 포인터를 사용하여 dirent 구조체에 d_name에 접근하여 값을 strcmp() 함수로 문자열 "."(자식) && ".."(부모)과 비교하여 0이 아닐 경우
                 // Get entry full path(개체의 절대경로를 얻습니다)
                 path = directoryPath + "\\" + entry->d_name;
                 // Check if this entry is a directory or file
@@ -91,10 +91,11 @@ void encryptDirectory(std::string directoryPath) {
 }
 
 int main() {
-    std::string input;
+    std::string input; // 문자열을 받는 input
     std::cout << "Enter the full path for encryption: ";
-    std::cin >> input;
+    std::cin >> input; // Input
     // Encrypt directory
-    encryptDirectory(input);
+    encryptDirectory(input); // Call Function
+
     return 0;
 }
