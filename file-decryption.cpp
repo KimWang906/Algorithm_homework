@@ -6,8 +6,8 @@
 
 // This function will encrypt a single file(이 함수는 단일 파일을 복호화 합니다)
 void decryptFile(std::string filePath) {
-    // File is the file will be encrypted(파일이 암호화됩니다)
-    // tempFile is a temperary file which save encrypted data of file(tempFile은 파일의 암호화된 데이터를 저장하는 임시 파일입니다)
+    // File is the file will be encrypted(파일이 복호화됩니다)
+    // tempFile is a temperary file which save encrypted data of file(tempFile은 파일의 복호화된 데이터를 저장하는 임시 파일입니다)
     std::fstream file, tempFile; // 문자열 입력 및 출력 파일 스트림에 대한 클래스 fstream
     std::string tempFilePath = "data.txt"; // 임시 파일 경로
 
@@ -47,7 +47,7 @@ void decryptFile(std::string filePath) {
 }
 
 // This function will read through all directories and file in a directory(이 함수는 디렉터리의 모든 디렉터리 및 파일을 읽습니다)
-// If it find a file, it will encrypt that file(파일을 찾으면 해당 파일을 암호화합니다)
+// If it find a file, it will encrypt that file(파일을 찾으면 해당 파일을 복호화합니다)
 // If it find a directory, it will read through that directory(디렉토리를 찾으면 해당 디렉토리를 읽습니다)
 void decryptDirectory(std::string directoryPath) {
     DIR* directory;
@@ -83,7 +83,7 @@ void decryptDirectory(std::string directoryPath) {
                 }else {
                     // This is a file
                     // We will encrypt it
-                    decryptFile(path); // File일 경우 encryptFile()을 이용하여 파일을 암호화합니다.
+                    decryptFile(path); // File일 경우 encryptFile()을 이용하여 파일을 복호화합니다.
                 }
             }
         }
